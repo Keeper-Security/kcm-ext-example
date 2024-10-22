@@ -1,0 +1,16 @@
+{
+
+    "guacamoleVersion" : "1.5.5",
+
+    "name"      : "Example Extension for KCM",
+    "namespace" : "kcm-ext-example",
+
+    "authProviders" : [
+        "com.keepersecurity.kcm.ExampleAuthenticationProvider"
+    ],
+
+    "translations" : [
+        "translations/en.json"
+    ]
+
+}

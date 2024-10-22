@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                        http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.keepersecurity</groupId>
+    <artifactId>kcm-ext-example</artifactId>
+    <packaging>jar</packaging>
+    <version>2.19.0</version>
+    <name>kcm-ext-example</name>
+    <url>https://www.keepersecurity.com</url>
+
+    <!-- Automatically include copies of any runtime dependencies that are not
+    already provided by the webapp (are not in "provided" scope). In this
+    example, there are no such dependencies, so this is a no-op. -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-runtime-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeScope>runtime</includeScope>
+                            <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+
+        <!-- Guacamole Extension API (the version of the API pulled into the
+        build should be no newer than the base version of Guacamole included
+        with KCM) -->
+        <dependency>
+            <groupId>org.apache.guacamole</groupId>
+            <artifactId>guacamole-ext</artifactId>
+            <version>1.5.5</version>
+            <scope>provided</scope>
+        </dependency>
+        
+    </dependencies>
+
+</project>
